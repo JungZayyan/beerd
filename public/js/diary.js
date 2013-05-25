@@ -38,4 +38,10 @@ function BeerNameController($scope, $http, limitToFilter, debounce) {
         });
     };
     $scope.beers = debounce(beers, 300, false);
+    $scope.beerTitle = function(beer) {
+        if (typeof beer === 'undefined' || beer === null) {
+            return null;
+        }
+        return beer.name;
+    };
 }

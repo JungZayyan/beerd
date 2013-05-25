@@ -9,7 +9,7 @@ block content
       h2(class="form-signin-heading") What are you drinking?
       input.input-block-level(type="text", placeholder="Beer name",
         ng-controller='BeerNameController', ng-model='result',
-        typeahead='beer for beer in beers($viewValue)')
+        typeahead='beerTitle(beer) for beer in beers($viewValue)')
       section(class="center")
         input(type="radio", name="rate", class="rate", id="rate-up")
         label(class="rate rate-up", for="rate-up")
