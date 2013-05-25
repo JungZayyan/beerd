@@ -14,6 +14,12 @@ module.exports = (grunt) ->
         ]
         tasks: ['develop', 'delayed-livereload']
 
+      'js-client':
+        files: [
+          'public/js/*.js'
+        ]
+        tasks: ['livereload']
+
       css:
         files: ['public/stylesheets/*.css']
         tasks: ['livereload']
