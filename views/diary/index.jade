@@ -4,15 +4,15 @@ block content
   script(src="/js/diary.js")
 
   h1 Diary
-  div(class="container")
-    form(class="form-signin")
-      h2(class="form-signin-heading") What are you drinking?
-      input(type="text", class="input-block-level", placeholder="Beer name",
+  div.container
+    form.form-signin
+      h2.form-signin-heading What are you drinking?
+      input.input-block-level(type="text", placeholder="Beer name",
         ng-controller='BeerNameController', ng-model='selected',
         typeahead='beer for beer in beers | filter:$viewValue')
-      section(class="center")
-        div(class="rate rate-up") Rate up
-        div(class="rate rate-down") Rate down
-      textarea(class="notes")
+      section.center
+        div.rate.rate-up Rate up
+        div.rate.rate-down Rate down
+      textarea.notes
       input(type="checkbox", value="remember-me")
-      button(class=" btn-large btn-primary",type="submit") Sign in
+      button.btn-large.btn-primary(type="submit") Sign in
