@@ -30,6 +30,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/diary', routes.diary);
+app.get('/history', routes.history);
 
 
 
