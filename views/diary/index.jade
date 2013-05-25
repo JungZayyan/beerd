@@ -1,11 +1,15 @@
 extends ../layout
 
 block content
+  script(src="/js/diary.js")
+
   h1 Diary
   div(class="container")
     form(class="form-signin")
       h2(class="form-signin-heading") What are you drinking?
-      input(type="text", class="input-block-level", placeholder="Beer name")
+      input.input-block-level(type="text", placeholder="Beer name",
+        ng-controller='BeerNameController', ng-model='selected',
+        typeahead='beer for beer in beers | filter:$viewValue')
       section(class="center")
         input(type="radio", name="rate", class="rate", id="rate-up")
         label(class="rate rate-up", for="rate-up")
@@ -13,7 +17,5 @@ block content
         label(class="rate rate-down", for="rate-down")
       h2 Tasting notes
       textarea(class="notes")
-
-      
 
       button(class=" btn-large btn-primary",type="submit") Submit

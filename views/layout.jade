@@ -1,5 +1,5 @@
 doctype 5
-html
+html(ng-app='beerd')
   head
     title= title
     script(src='http://localhost:35729/livereload.js')
@@ -7,8 +7,12 @@ html
     link(href="/css/bootstrap.css", rel="stylesheet", media="screen")
     link(href="/css/bootstrap-responsive.min.css", rel="stylesheet", media="screen")
     link(href="/css/beerd.css", rel="stylesheet", media="screen")
+    link(href="/components/angular-ui/build/angular-ui.min.css", rel="stylesheet", media="screen")
   body
     script(src="/components/jquery/jquery.min.js")
     script(src="/js/bootstrap.min.js")
     script(src="/js/bootstrap.responsive.min.js")
+    script(src="/components/angular/angular.min.js")
+    script(src="/components/angular-ui/build/angular-ui.min.js")
+    script(src="/components/angular-bootstrap/ui-bootstrap-tpls.js")
     block content

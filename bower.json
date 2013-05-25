@@ -8,6 +8,9 @@
   ],
   "dependencies": {
     "jquery": "~2.0.1",
-    "lodash": "~1.2.1"
+    "lodash": "~1.2.1",
+    "angular": "~1.0.7",
+    "angular-ui": "~0.4.0",
+    "angular-bootstrap": "~0.3.0"
   }
 }
