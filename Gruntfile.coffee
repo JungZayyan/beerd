@@ -19,7 +19,7 @@ module.exports = (grunt) ->
         tasks: ['livereload']
 
       jade:
-        files: ['views/*.jade']
+        files: ['views/{,*/}*.jade']
         tasks: ['livereload']
 
   grunt.registerTask 'delayed-livereload', 'delayed livereload', ->

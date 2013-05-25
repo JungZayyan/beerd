@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  h1 Diary
+  div(class="container")
+    form(class="form-signin")
+      h2(class="form-signin-heading") What are you drinking?
+      input(type="text", class="input-block-level", placeholder="Beer name")
+      section(class="center")
+        div(class="rate rate-up") Rate up
+        div(class="rate rate-down") Rate down
+      textarea(class="notes")
+      input(type="checkbox", value="remember-me")
+      button(class=" btn-large btn-primary",type="submit") Sign in
