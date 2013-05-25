@@ -16,5 +16,9 @@
     "grunt-develop": "~0.0.2",
     "grunt-regarde": "~0.1.1",
     "grunt-contrib-livereload": "~0.1.2"
+  },
+  "engines": {
+    "node": "0.8.23",
+    "npm": "1.1"
   }
 }
