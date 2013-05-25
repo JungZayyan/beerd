@@ -1,0 +1,24 @@
+.center {
+  text-align: center;
+}
+
+.center > .rate {
+  margin: 0px auto;
+}
+.rate {
+
+  height: 90px;
+  width: 90px;
+  display: inline-block;
+  border: 1px solid #333;
+  margin: 10px;
+
+}
+
+.rate-up {
+
+}
+
+.rate-down {
+
+}
