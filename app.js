@@ -1,15 +1,23 @@
 var express = require('express')
+  , utils = require('./lib/utils')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , api = require('./routes/api');
+  , api = require('./routes/api')
+  , db = require('./lib/db');
 
 
 console.log();
 console.log('Starting application...');
 
 var app = express();
+
+//utils.requireEnvVariable app, 'SESSION_SECRET', 'thisisthesecretpassphraseforlocaldev'
+utils.requireEnvVariable(app, 'MONGOLAB_URI', 'mongodb://localhost/beerd');
+//utils.requireEnvVariable app, 'REDISTOGO_URL'
+
+var models = db(process.env.MONGOLAB_URI)
 
 app.configure(function(){
     app.set('port', process.env.PORT || 3000);
@@ -20,6 +28,10 @@ app.configure(function(){
     app.use(express.favicon());
     app.configure('development', function(){
       app.use(express.logger('dev'));
+    });
+    app.use(function(request, response, next) {
+        app.models = models;
+        next();
     });
     app.use(express.bodyParser());
     app.use(express.methodOverride());
@@ -39,7 +51,6 @@ app.get('/diary', routes.diary);
 app.get('/history', routes.history);
 
 app.get('/api/beers', api.beers);
-
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port %d in mode %s.",
