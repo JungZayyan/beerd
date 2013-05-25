@@ -7,8 +7,10 @@ block content
       h2(class="form-signin-heading") What are you drinking?
       input(type="text", class="input-block-level", placeholder="Beer name")
       section(class="center")
-        div(class="rate rate-up") Rate up
-        div(class="rate rate-down") Rate down
+        input(type="radio", name="rate", class="rate", id="rate-up")
+        label(class="rate rate-up", for="rate-up")
+        input(type="radio", name="rate", class="rate", id="rate-down")
+        label(class="rate rate-down", for="rate-down")
+      h2 Tasting notes
       textarea(class="notes")
-      input(type="checkbox", value="remember-me")
-      button(class=" btn-large btn-primary",type="submit") Sign in
+      button(class=" btn-large btn-primary",type="submit") Submit

@@ -5,20 +5,38 @@
 .center > .rate {
   margin: 0px auto;
 }
-.rate {
+.container label.rate {
 
   height: 90px;
   width: 90px;
   display: inline-block;
   border: 1px solid #333;
   margin: 10px;
-
+  -webkit-appearance: none;
 }
 
-.rate-up {
-
+.container input.rate {
+  display: none;
 }
 
-.rate-down {
+.cotnainer .rate:checked {
+  border:10px solid red;
+}
 
+.rate-up:before {
+  content: "Rate up";
+}
+
+.rate-down:before {
+  content: "Rate down";
+}
+
+.container textarea {
+  width: 100%;
+  display: block;
+  min-height:200px;
+}
+
+input.rate[type="radio"]:checked + label {
+  border: 3px solid blue;
 }
