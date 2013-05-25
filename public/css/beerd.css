@@ -1,3 +1,6 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Advent Pro', sans-serif;
+}
 .center {
   text-align: center;
 }
@@ -61,7 +64,36 @@ input.rate[type="radio"]:checked + label {
   border: 1px solid #eee;
   padding: 20px;
   margin-bottom:30px;
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-flex-flow: row;
+         flex-flow: row;
 }
+
+.image-circle {
+  max-width: 130px;
+  max-height: 130px;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  border: 2px solid #cecece;
+  display: inline-block;
+  -webkit-flex: 3 1 10%;
+          flex: 3 1 10%;
+  -webkit-order: 1;
+          order: 1;
+}
+
+.image-circle img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 100%;
+  border: 4px solid #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 
 .history .entry h3 {
   display: inline-block;
@@ -74,4 +106,9 @@ input.rate[type="radio"]:checked + label {
   -webkit-box-shadow: inset 0 0 5px #ccc;
   box-shadow: inset 0 0 5px #ccc;
   padding: 20px;
+  width: auto;
+   -webkit-flex: 1 6 20%;
+           flex: 1 6 20%;
+   -webkit-order: 2;
+           order: 2;
 }
