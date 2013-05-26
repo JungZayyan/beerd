@@ -1,4 +1,4 @@
-
+_ = require('lodash');
 /*
  * GET home page.
  */
@@ -35,6 +35,13 @@ module.exports = function(app, models) {
             .find()
             .sort({ created: -1 })
             .exec(function(err, tastings) {
+                tastings = _.map(tastings, function(tasting) {
+                    tasting = tasting.toObject();
+                    tasting.imageName = 'dead-guy';
+                    if (_.contains([15967, 1862], tasting.beer.beerId))
+                        tasting.imageName = String(tasting.beer.beerId);
+                    return tasting;
+                });
                 res.render('history', {
                     title: 'History',
                     tastings: tastings,
