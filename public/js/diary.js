@@ -31,7 +31,7 @@ app.factory('debounce', function($timeout, $q) {
   };
 });
 
-function TastingController($scope, $http, limitToFilter, debounce) {
+function TastingController($scope, $http, $q, limitToFilter, debounce) {
     var beers = function(name) {
         return $http.get('/api/beers?filter=' + name).then(function(responses) {
             return limitToFilter(responses.data, 15);
@@ -44,4 +44,18 @@ function TastingController($scope, $http, limitToFilter, debounce) {
         }
         return beer.name;
     };
+    $scope.locationName = '';
+    console.log('getting position...');
+    navigator.geolocation.getCurrentPosition(function(position) {
+        console.log(position);
+        console.log('getting the place...');
+        $http.get('/api/location?ll=' + position.coords.latitude
+                  + ',' + position.coords.longitude).success(function(data) {
+            $scope.locationName = data.businesses[0].name;
+        });
+    }, function() {
+        // TODO: handle failure
+        $scope.locationName = '<no location found>';
+    });
+
 }

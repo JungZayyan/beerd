@@ -1,7 +1,6 @@
 var express = require('express')
   , utils = require('./lib/utils')
   , routes = require('./routes')
-  , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
   , api = require('./routes/api')
@@ -42,7 +41,7 @@ app.configure('development', function(){
 });
 
 routes(app, models);
-app.get('/api/beers', api.beers);
+api(app, models);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port %d in mode %s.",
