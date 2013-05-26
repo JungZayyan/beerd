@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  script(type="text/javascript",
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpzXAf-bMfHIHLOkcmYf3niujsdtEX2qw&sensor=false")
+  script(src="/js/map.js")
+  header.head
+    div(class="container map")
+      h1 Map
+  div.container.map
+    div#map-canvas(style="position: absolute; top: 70px; bottom:0; left: 0; right: 0")

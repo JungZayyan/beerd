@@ -17,6 +17,10 @@ module.exports = function(app, models) {
         res.render('home', { title: 'Home' });
     });
 
+    app.get('/map', function(req, res) {
+        res.render('map', { title: 'Map' });
+    });
+
     app.get('/diary', function(req, res) {
         res.render('diary', { title: 'Diary' });
     });
