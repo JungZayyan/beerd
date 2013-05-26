@@ -1,9 +1,12 @@
 extends layout
 
 block content
+  script(src="/js/sign-in.js")
   header.head
     div(class="container history")
       h1 Sign in
   div.container.sign-in
     h2(class="form-signin-heading")
     a(href="/home") Log in!
+  div#fb-root
+  | <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
