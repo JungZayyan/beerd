@@ -14,8 +14,14 @@ module.exports = function(app, models) {
     });
 
     app.get('/history', function(req, res){
-        models.Tasting.find(function(err, tastings) {
-            res.render('history', { title: 'History', tastings: tastings });
+        models.Tasting
+            .find()
+            .sort({ created: -1 })
+            .exec(function(err, tastings) {
+                res.render('history', {
+                    title: 'History',
+                    tastings: tastings
+                });
         });
     });
 
