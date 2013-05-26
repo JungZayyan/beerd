@@ -2,7 +2,8 @@ doctype 5
 html(ng-app='beerd')
   head
     title= title
-    script(src='http://localhost:35729/livereload.js')
+    if livereload
+        script(src='http://localhost:35729/livereload.js')
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(href="/css/bootstrap.css", rel="stylesheet", media="screen")
     link(href="/css/bootstrap-responsive.css", rel="stylesheet", media="screen")
