@@ -5,10 +5,11 @@ block content
 
   h1 Diary
   div(class="container")
-    form(class="form-signin")
+    form(class="form-signin", ng-controller='TastingController',
+         method="post", action="/diary")
       h2(class="form-signin-heading") What are you drinking?
       input.input-block-level(type="text", placeholder="Beer name",
-        ng-controller='BeerNameController', ng-model='result',
+        ng-model='beerName', name="beerName"
         typeahead='beerTitle(beer) for beer in beers($viewValue)')
       input.input-block-level(type="text", placeholder="Location")
       input.input-block-level.photo(type="text", placeholder="Photo")
