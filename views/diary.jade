@@ -10,20 +10,19 @@ block content
         p Post
   div.container
     form(class="form-signin", ng-controller='TastingController',
-         method="post", action="/diary")
+         ng-submit="sendForm()")
       h2(class="form-signin-heading") What are you drinking?
       input.input-block-level(type="text", placeholder="Beer name",
-        ng-model='beerName', name="beerName", autocomplete="off",
-        typeahead='beerTitle(beer) for beer in beers($viewValue)')
+        ng-model='beer', name="beer", autocomplete="off",
+        typeahead='b.name for b in beers($viewValue)')
       select.input-block-level.dropdown(type="text", placeholder="Location",
-                               name="location",
-                               ng-model="location",
-                               ng-options="l.name for (n,l) in locations")
+        name="location", ng-model="location",
+        ng-options="l.name for (n,l) in locations")
       input.input-block-level.photo(type="text", placeholder="Photo")
       section.heart
         textarea.notes(placeholder="Tasting notes",
-                       name="notes")
-        input#heart(type="checkbox")
+                       name="notes", ng-model="notes")
+        input#heart(type="checkbox", ng-model="liked")
         label(for="heart")
       button.btn-large.btn-primary(type="submit") Submit
   script(src="/js/beerd.js")

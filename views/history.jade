@@ -17,7 +17,8 @@ block content
 
             header
               h3
-                span.beer-name= tasting.beerName
+                span.beer-name= tasting.beer.name
               if tasting.liked
                 span.rating Liked
+              p Drank at #{tasting.location.name}
               p= tasting.notes

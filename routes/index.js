@@ -6,34 +6,26 @@
 module.exports = function(app, models) {
 
     app.get('/', function(req, res) {
-        res.redirect('/history');
+        res.redirect('/sign-in');
+    });
+
+    app.get('/sign-in', function(req, res) {
+        res.render('sign-in', { title: 'Sign in' });
     });
 
     app.get('/diary', function(req, res) {
         res.render('diary', { title: 'Diary' });
     });
 
-    app.get('/trending', function(req, res) {
-        res.render('trending', { title: 'Trending' });
-    });
-
-    app.post('/diary', function(req, res) {
-        tasting = new models.Tasting({
-            beerName: req.param('beerName'),
-            location: req.param('location'),
-            coords: req.param('coords'),
-            notes: req.param('notes'),
-            liked: false
-        });
-        tasting.save();
-
-        res.redirect('/history');
-    });
-
     app.get('/history', function(req, res){
-        models.Tasting.find(function(err, tastings) {
-            console.log(tastings);
-            res.render('history', { title: 'History', tastings: tastings });
+        models.Tasting
+            .find()
+            .sort({ created: -1 })
+            .exec(function(err, tastings) {
+                res.render('history', {
+                    title: 'History',
+                    tastings: tastings
+                });
         });
     });
 

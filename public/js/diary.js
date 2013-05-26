@@ -32,29 +32,28 @@ app.factory('debounce', function($timeout, $q) {
 });
 
 function TastingController($scope, $http, $q, limitToFilter, debounce) {
+    $scope.url = '/api/tasting';
+    var beers = []
+
     var beers = function(name) {
         if (name === null || name.length < 3)
             return [];
         return $http.get('/api/beers?filter=' + name).then(function(responses) {
-            return limitToFilter(responses.data, 15);
+            beers = limitToFilter(responses.data, 15);
+            return beers;
         });
     };
     $scope.beers = debounce(beers, 300, false);
-    $scope.beerTitle = function(beer) {
-        if (typeof beer === 'undefined' || beer === null) {
-            return null;
-        }
-        return beer.name;
-    };
+    $scope.liked = false
     $scope.location = '';
     $scope.locations = {};
-    $scope.coords = ''
+    $scope.coords = {latitude:0, longitude:0}
     console.log('getting position...');
     navigator.geolocation.getCurrentPosition(function(position) {
         console.log(position);
         console.log('getting the place...');
-        $scope.coords = position.coords.latitude + ','
-                      + position.coords.longitude
+        $scope.coords.latitude = position.coords.latitude;
+        $scope.coords.longitude = position.coords.longitude;
         $http.get('/api/location?ll=' + position.coords.latitude
                   + ',' + position.coords.longitude).success(function(data) {
             $scope.locations = {};
@@ -69,5 +68,20 @@ function TastingController($scope, $http, $q, limitToFilter, debounce) {
         $scope.locations = []
         $scope.locationName = '<no location found>';
     });
+
+    $scope.sendForm = function() {
+        var beer = _.find(beers, {name: $scope.beer});
+        if (beer === null) return;
+        $http.post($scope.url, {
+            beer: beer,
+            location: $scope.location,
+            coords: $scope.coords,
+            notes: $scope.notes,
+            liked: $scope.liked
+        }).success(function(data, status) {
+            window.location.href = '/history';
+        });
+
+    };
 
 }
