@@ -2,8 +2,10 @@ extends layout
 
 block content
   header.head
-    div(class="container history")
+    div(class="container")
+      a.go-back(href="/")
       h1 Trending
+      a.new-post(href="/diary/")
   div.container.trending
     h2(class="form-signin-heading")
 

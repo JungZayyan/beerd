@@ -804,7 +804,7 @@
     padding-right: 20px;
     padding-left: 20px;
   }
-  .post-this {
+  .post-this, .new-post {
     margin-right: -20px;
   }
   .go-back {

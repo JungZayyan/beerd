@@ -30,10 +30,7 @@ module.exports = function(app, models) {
     });
 
     app.get('/trending', function(req, res){
-        models.Tasting.find(function(err, tastings) {
-            console.log(tastings);
-            res.render('trending', { title: 'Trending', tastings: tastings });
-        });
+        res.render('trending', { title: 'Trending' });
     });
 };
 

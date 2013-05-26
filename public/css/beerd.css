@@ -61,8 +61,21 @@ header.head div.post-this {
   vertical-align: middle;
 }
 
+.post-this button {
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-this button:hover {
+  background: none;
+}
+
 header.head a.go-back {
   display: block;
+  border-left: 1px solid #d6d6d6;
   border-right: 1px solid #d6d6d6;
   width: 5%;
   min-width: 70px;
@@ -71,6 +84,24 @@ header.head a.go-back {
   -webkit-order: 1;
           order: 1;
   background: url(/img/back-btn.png) 45% center no-repeat;
+}
+
+header.head a.new-post {
+  display: block;
+  border-left: 1px solid #d6d6d6;
+  border-right: 1px solid #d6d6d6;
+  width: 5%;
+  min-width: 70px;
+  -webkit-flex: 11 1 5%;
+          flex: 11 1 5%;
+  -webkit-order: 1;
+          order: 1;
+  background: url(/img/new-post-icon.png) center center no-repeat;
+}
+
+header.head a.new-post:hover, header.head a.new-post:active {
+  background-color: #eda847;
+  cursor: pointer;
 }
 
 header.head a.go-back:hover, header.head a.go-back:active {
@@ -83,7 +114,7 @@ header.head div.go-back ~ h1 {
           order: 2;
 }
 
-header.head div.go-back ~ .post-this {
+header.head div.go-back ~ .post-this, header.head div.go-back ~ .new-post {
   -webkit-order: 3;
           order: 3;
 }
@@ -141,7 +172,7 @@ input.photo {
 .heart {
   position: relative;
   padding-top: 25px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 .heart input {
@@ -252,7 +283,7 @@ input.photo {
 .history .entry h3 {
   display: inline-block;
   padding-right: 30px;
-  font-size: 1.5em;
+  font-size: 1em;
   line-height: 30px;
 }
 
@@ -260,6 +291,8 @@ input.photo {
   border-bottom: 1px solid #cecece;
   margin-top: 0;
   line-height: 30px;
+  font-size: 1.5em;
+  font-weight: 100;
 }
 
 .trending .entry section {
@@ -281,4 +314,25 @@ input.photo {
 .entry span.brewery {
   display: block;
   font-weight: bold;
+  font-size: 1.3em;
+}
+
+.entry span.beer-name {
+  display: block;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.history .entry {
+  padding-bottom: 0px!important;
+}
+
+.trending .beer-name {
+  font-size: 1.3em!important;
+  font-weight: 100!important;
+}
+
+.history .drank-at, .history .tasting-notes {
+  display: block;
+  font-size:1.2em;
 }

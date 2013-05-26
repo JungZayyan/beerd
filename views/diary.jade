@@ -2,15 +2,16 @@ extends layout
 
 block content
   script(src="/js/diary.js")
-  header.head
-    div(class="container history")
-      a.go-back(href="../")
-      h1 New entry
-      div.post-this
-        p Post
-  div.container
-    form(class="form-signin", ng-controller='TastingController',
-         ng-submit="sendForm()")
+  form(class="form-signin", ng-controller='TastingController',
+       ng-submit="sendForm()")
+    header.head
+      div(class="container")
+        a.go-back(href="/")
+        h1 New entry
+        div.post-this
+          button.btn-large.btn-primary(type="submit") Post
+    div.container
+    
       h2(class="form-signin-heading") What are you drinking?
       input.input-block-level(type="text", placeholder="Beer name",
         ng-model='beer', name="beer", autocomplete="off",
@@ -24,5 +25,3 @@ block content
                        name="notes", ng-model="notes")
         input#heart(type="checkbox", ng-model="liked")
         label(for="heart")
-      button.btn-large.btn-primary(type="submit") Submit
-  script(src="/js/beerd.js")
