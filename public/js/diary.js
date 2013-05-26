@@ -33,6 +33,8 @@ app.factory('debounce', function($timeout, $q) {
 
 function TastingController($scope, $http, $q, limitToFilter, debounce) {
     var beers = function(name) {
+        if (name.length < 3)
+            return null;
         return $http.get('/api/beers?filter=' + name).then(function(responses) {
             return limitToFilter(responses.data, 15);
         });
