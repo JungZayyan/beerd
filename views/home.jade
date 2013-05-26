@@ -2,9 +2,12 @@ extends layout
 
 block content
   header.head
-    div(class="container home")
+    div(class="container")
       h1 Home
+  
   div.container.sign-in
-    a(href="/history") Show diary!
-    a(href="/diary") Add a new entry!
-    a(href="/trending") Show trending!
+    div.profile-pic
+      img(src="/images/profile/mo.jpg")
+    a.history(href="/history")
+    a.diary(href="/diary")
+    a.trending(href="/trending")

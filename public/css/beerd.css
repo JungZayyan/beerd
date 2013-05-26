@@ -354,6 +354,7 @@ input.photo {
 
 .container.map img {
   max-width: none;
+  max-height: none;
 }
 
 .container.diary {
@@ -372,4 +373,81 @@ input.photo {
   height: 30px;
   font-size: 14px!important;
   font-family: 'helvetica', sans-serif;
+}
+
+/* Home */
+
+.sign-in {
+  position: relative;;
+}
+
+.sign-in a {
+  position: absolute;
+  border: 2px solid #cecece;
+  background-color: #e5e5e5;
+  border-radius: 100%;
+  height: 75px;
+  width: 75px;
+  display: block;
+  top: 230px;
+  margin-left: -37.5px;
+  text-align: center;
+  background-size: 50%;
+}
+
+.profile-pic {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  margin-left: -87.5px;
+  height: 175px;
+  width: 175px;
+  border-radius: 100%;
+  border: 1px solid #cecece;
+  overflow: hidden;
+  padding: 4px;
+  background-color: #fff;
+  -webkit-box-shadow: inset 0px 0px 3px #666;
+}
+
+.profile-pic img {
+  height: 175px;
+  width: 175px;
+  border-radius: 100%;
+}
+/*#eea030*/
+.sign-in a.history {
+  left: 20%;
+  background: #8e8393 url(/img/main-fav-icon.png) 55% center no-repeat;
+  background-size: 50%;
+}
+
+a.history:hover {
+  background: #eea030 url(/img/main-fav-icon.png) 55% center no-repeat;
+  background-size: 50%;
+}
+
+.sign-in a.diary {
+  top: 260px;
+  left: 50%;
+  background: #8e8393 url(/img/main-diary.png) center 55% no-repeat;
+  background-size: 50%;
+}
+
+.sign-in a.diary:hover {
+  background: #eea030 url(/img/main-diary.png) center 55% no-repeat;
+  background-size: 50%;
+}
+
+
+.sign-in a.trending {
+  left: 80%;
+  background: #8e8393 url(/img/main-trending.png) center center no-repeat;
+  background-size: 50%;
+}
+
+
+.sign-in a.trending:hover {
+  background: #eea030 url(/img/main-trending.png) center center no-repeat;
+  background-size: 50%;
 }
