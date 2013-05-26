@@ -29,10 +29,6 @@ app.configure(function(){
     app.configure('development', function(){
       app.use(express.logger('dev'));
     });
-    app.use(function(request, response, next) {
-        app.models = models;
-        next();
-    });
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.cookieParser());
@@ -45,11 +41,7 @@ app.configure('development', function(){
     app.locals.pretty = true;
 });
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-app.get('/diary', routes.diary);
-app.get('/history', routes.history);
-
+routes(app, models);
 app.get('/api/beers', api.beers);
 
 http.createServer(app).listen(app.get('port'), function(){
