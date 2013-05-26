@@ -1,6 +1,9 @@
 var _ = require('lodash');
 var beerList = require('../mockdata/unique_beers.json');
-var yelp = require('yelp')
+var yelp = require('yelp');
+
+var check = require('validator').check,
+    sanitize = require('validator').sanitize;
 
 module.exports = function(app, models) {
 
@@ -53,8 +56,14 @@ module.exports = function(app, models) {
 
 
     app.post('/api/splash', function(req, res) {
+        var email = req.param('email');
+        try {
+            check(email).len(6, 64).isEmail();
+        } catch (ex) {
+            return res.send(400);
+        }
         var splash = new models.Splash({
-            email: req.param('email')
+            email: email
         });
         splash.save(function(error) {
             if (error)
