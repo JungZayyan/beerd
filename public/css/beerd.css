@@ -213,8 +213,8 @@ input.photo {
   height: 50px;
   width: 50px;
   border-radius: 100%;
-  background: #ccc url(/img/heart-red.png) center center no-repeat;
-  background: #ccc url(/img/heart.png) center center no-repeat;
+  background: #fefefe url(/img/fav-star-on.png) center center no-repeat;
+  background: #fefefe url(/img/fav-star-off.png) center center no-repeat;
   position: absolute;
   bottom: 5px;
   right: 10px;
@@ -227,7 +227,7 @@ input.photo {
 }
 
 .heart input:checked + label {
-  background-image: url(/img/heart-red.png);
+  background-image: url(/img/fav-star-on.png);
 }
 
 /*
@@ -258,6 +258,7 @@ input.photo {
   height: 125px;
   width:2px;
   position: absolute;
+  z-index: -1000;
 }
 
 .history .entry:last-child .image-wrap:after {
@@ -296,9 +297,17 @@ input.photo {
 
 .history .entry h3 {
   display: inline-block;
-  padding-right: 30px;
+  padding-right: 10px;
   font-size: 1em;
   line-height: 30px;
+}
+
+.history .rating {
+  height: 18px;
+  width: 18px;
+  background-image: url(/img/fav-star-on.png); center center no-repeat;
+  display: inline-block;
+  background-size: 100%;
 }
 
 .trending .entry section h3 {
