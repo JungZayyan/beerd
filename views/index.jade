@@ -3,3 +3,11 @@ extends layout
 block content
   h1= title
   p Welcome to #{title} !!!
+  form(ng-controller='SplashController',
+       ng-submit="sendForm()")
+    input.input-block-level(type="email", placeholder="your email",
+        ng-model='email')
+    button.btn-large.btn-primary(type="submit") Send
+    div(ng-show='success')
+        p Thank you!
+

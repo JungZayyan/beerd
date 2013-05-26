@@ -83,3 +83,21 @@ function TastingController($scope, $http, $q, limitToFilter, debounce) {
     };
 
 }
+
+
+function SplashController($scope, $http, $q) {
+    $scope.url = '/api/splash'
+    $scope.email = '';
+    $scope.success = false;
+    $scope.sendForm = function() {
+        $http.post($scope.url, {
+            email: $scope.email
+        }).success(function() {
+            $scope.success = true;
+        });
+
+    };
+
+}
+
+

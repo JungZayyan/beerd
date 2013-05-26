@@ -1,6 +1,9 @@
 var _ = require('lodash');
 var beerList = require('../mockdata/unique_beers.json');
-var yelp = require('yelp')
+var yelp = require('yelp');
+
+var check = require('validator').check,
+    sanitize = require('validator').sanitize;
 
 module.exports = function(app, models) {
 
@@ -49,5 +52,24 @@ module.exports = function(app, models) {
                 return res.send(400);
             res.send(200);
         });
+    });
+
+
+    app.post('/api/splash', function(req, res) {
+        var email = req.param('email');
+        try {
+            check(email).len(6, 64).isEmail();
+        } catch (ex) {
+            return res.send(400);
+        }
+        var splash = new models.Splash({
+            email: email
+        });
+        splash.save(function(error) {
+            if (error)
+                return res.send(400);
+            res.send(200);
+        });
+
     });
 }

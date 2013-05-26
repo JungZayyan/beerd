@@ -1,7 +1,6 @@
 extends layout
 
 block content
-  script(src="/js/diary.js")
   form(class="form-signin", ng-controller='TastingController',
        ng-submit="sendForm()")
     header.head
@@ -11,7 +10,6 @@ block content
         div.post-this
           button.btn-large.btn-primary(type="submit") Post
     div.container.diary
-    
       h2(class="form-signin-heading") What are you drinking?
       input.input-block-level(type="text", placeholder="Beer name",
         ng-model='beer', name="beer", autocomplete="off",
