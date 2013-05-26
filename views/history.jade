@@ -1,8 +1,10 @@
 extends layout
 
 block content
-  div(class="container history")
-    h1 History
+  header.head
+    div(class="container history")
+      h1 History
+  div.container.history
     h2(class="form-signin-heading")
     for tasting in tastings
 

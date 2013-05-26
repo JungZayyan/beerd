@@ -16,11 +16,58 @@ h2, h3 {
   margin: 0px auto;
 }
 
+/* Header */
+
+header.head {
+  width: 100%;
+  background-color: #e5e5e5;
+}
+
+header.head .container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-flex-flow: row;
+         flex-flow: row;
+}
+
+header.head h1 {
+  text-align: center;
+
+  -webkit-box-flex: 1;
+  width: 90%;
+  -webkit-flex: 1 12 90%;
+          flex: 1 12 90%;
+  -webkit-order: 1;
+          order: 1;
+}
+
+header.head div.post-this {
+  background-color: #eea030;
+  width: 5%;
+  min-width: 70px;
+  -webkit-flex: 11 1 5%;
+          flex: 11 1 5%;
+  -webkit-order: 2;
+          order: 2;
+  padding-top:17px;
+  font-size: 14pt;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+}
+
+header.head div.post-this:hover, header.head div.post-this:active {
+  background-color: #eda847;
+  cursor: pointer;
+}
+
+
+
 /*
   DIARY
 */
 .container label.rate {
-
   height: 90px;
   width: 90px;
   display: inline-block;
@@ -33,18 +80,6 @@ h2, h3 {
   display: none;
 }
 
-.cotnainer .rate:checked {
-  border:10px solid red;
-}
-
-.rate-up:before {
-  content: "Rate up";
-}
-
-.rate-down:before {
-  content: "Rate down";
-}
-
 .container textarea {
   width: 100%;
   min-height:200px;
@@ -53,16 +88,13 @@ h2, h3 {
   box-sizing: border-box;
 }
 
-input.rate[type="radio"]:checked + label {
-  border: 3px solid blue;
-}
-
-input[type="text"], .heart {
+input[type="text"], .heart, select {
   font-size: 12pt;
   border: 1px solid #d8d8d8;
   background-color: #e5e5e5;
   margin-bottom: 30px;
   padding: 0px 15px;
+  -webkit-appearance: none;
 }
 
 input[type="text"] {
@@ -71,7 +103,7 @@ input[type="text"] {
 
 input.photo {
   height: 75px;
-  background: #e5e5e5 url(/img/photo.jpg) right 10px center no-repeat;
+  background: #e5e5e5 url(/img/photo.jpg) right center no-repeat;
 
 }
 
