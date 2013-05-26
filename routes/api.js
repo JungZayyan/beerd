@@ -50,4 +50,17 @@ module.exports = function(app, models) {
             res.send(200);
         });
     });
+
+
+    app.post('/api/splash', function(req, res) {
+        var splash = new models.Splash({
+            email: req.param('email')
+        });
+        splash.save(function(error) {
+            if (error)
+                return res.send(400);
+            res.send(200);
+        });
+
+    });
 }
