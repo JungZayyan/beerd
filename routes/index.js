@@ -16,6 +16,8 @@ module.exports = function(app, models) {
     app.post('/diary', function(req, res) {
         tasting = new models.Tasting({
             beerName: req.param('beerName'),
+            location: req.param('location'),
+            coords: req.param('coords'),
             notes: req.param('notes'),
             liked: false
         });
