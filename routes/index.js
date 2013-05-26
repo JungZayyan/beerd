@@ -25,7 +25,10 @@ module.exports = function(app, models) {
     });
 
     app.get('/history', function(req, res){
-        res.render('history', { title: 'History' });
+        models.Tasting.find(function(err, tastings) {
+            console.log(tastings);
+            res.render('history', { title: 'History', tastings: tastings });
+        });
     });
 };
 
