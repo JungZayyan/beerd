@@ -33,8 +33,8 @@ app.factory('debounce', function($timeout, $q) {
 
 function TastingController($scope, $http, $q, limitToFilter, debounce) {
     var beers = function(name) {
-        if (name.length < 3)
-            return null;
+        if (name === null || name.length < 3)
+            return [];
         return $http.get('/api/beers?filter=' + name).then(function(responses) {
             return limitToFilter(responses.data, 15);
         });
@@ -46,17 +46,27 @@ function TastingController($scope, $http, $q, limitToFilter, debounce) {
         }
         return beer.name;
     };
-    $scope.locationName = '';
+    $scope.location = '';
+    $scope.locations = {};
+    $scope.coords = ''
     console.log('getting position...');
     navigator.geolocation.getCurrentPosition(function(position) {
         console.log(position);
         console.log('getting the place...');
+        $scope.coords = position.coords.latitude + ','
+                      + position.coords.longitude
         $http.get('/api/location?ll=' + position.coords.latitude
                   + ',' + position.coords.longitude).success(function(data) {
-            $scope.locationName = data.businesses[0].name;
+            $scope.locations = {};
+            _.forEach(data.businesses, function(business) {
+                $scope.locations[business.name] = business;
+            });
+            $scope.location = data.businesses[0];
+            console.log($scope.locations);
         });
     }, function() {
         // TODO: handle failure
+        $scope.locations = []
         $scope.locationName = '<no location found>';
     });
 
