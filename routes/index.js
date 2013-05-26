@@ -6,7 +6,11 @@
 module.exports = function(app, models) {
 
     app.get('/', function(req, res) {
-        res.redirect('/history');
+        res.redirect('/sign-in');
+    });
+
+    app.get('/sign-in', function(req, res) {
+        res.render('sign-in', { title: 'Sign in' });
     });
 
     app.get('/diary', function(req, res) {
