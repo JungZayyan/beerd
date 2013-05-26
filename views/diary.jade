@@ -20,7 +20,7 @@ block content
       input.input-block-level.photo(type="text", placeholder="Photo")
       section.heart
         textarea.notes(placeholder="Tasting notes",
-                       name="notes")
+                       name="notes", ng-model="notes")
         input#heart(type="checkbox", ng-model="liked")
         label(for="heart")
       button.btn-large.btn-primary(type="submit") Submit
