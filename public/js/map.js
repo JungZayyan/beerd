@@ -10,6 +10,3 @@ function initialize() {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
-
-var app = angular.module('beerd', ['ui.bootstrap']);
-
