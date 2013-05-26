@@ -14,6 +14,10 @@ var app = express();
 
 //utils.requireEnvVariable app, 'SESSION_SECRET', 'thisisthesecretpassphraseforlocaldev'
 utils.requireEnvVariable(app, 'MONGOLAB_URI', 'mongodb://localhost/beerd');
+utils.requireEnvVariable(app, 'YELP_KEY');
+utils.requireEnvVariable(app, 'YELP_SECRET');
+utils.requireEnvVariable(app, 'YELP_TOKEN');
+utils.requireEnvVariable(app, 'YELP_TOKEN_SECRET');
 //utils.requireEnvVariable app, 'REDISTOGO_URL'
 
 var models = db(process.env.MONGOLAB_URI)

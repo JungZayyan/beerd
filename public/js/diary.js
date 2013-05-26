@@ -45,7 +45,7 @@ function TastingController($scope, $http, $q, limitToFilter, debounce) {
     };
     $scope.beers = debounce(beers, 300, false);
     $scope.liked = false
-    $scope.location = '';
+    $scope.location = null;
     $scope.locations = {};
     $scope.coords = {latitude:0, longitude:0}
     console.log('getting position...');
@@ -65,8 +65,6 @@ function TastingController($scope, $http, $q, limitToFilter, debounce) {
         });
     }, function() {
         // TODO: handle failure
-        $scope.locations = []
-        $scope.locationName = '<no location found>';
     });
 
     $scope.sendForm = function() {

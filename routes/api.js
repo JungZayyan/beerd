@@ -33,15 +33,21 @@ module.exports = function(app, models) {
     });
 
     app.post('/api/tasting', function(req, res) {
-        tasting = new models.Tasting({
+        var tasting = new models.Tasting({
             beer: req.param('beer'),
             location: req.param('location'),
             coords: req.param('coords'),
             notes: req.param('notes'),
             liked: req.param('liked')
         });
-        tasting.save();
-
-        res.send(200);
+        if (typeof tasting.beer === 'undefined'
+            || typeof tasting.location === 'undefined'
+            || typeof tasting.coords === 'undefined')
+            return res.send(400);
+        tasting.save(function(error) {
+            if (error)
+                return res.send(400);
+            res.send(200);
+        });
     });
 }
