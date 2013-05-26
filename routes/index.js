@@ -13,6 +13,10 @@ module.exports = function(app, models) {
         res.render('sign-in', { title: 'Sign in' });
     });
 
+    app.get('/home', function(req, res) {
+        res.render('home', { title: 'Home' });
+    });
+
     app.get('/diary', function(req, res) {
         res.render('diary', { title: 'Diary' });
     });
