@@ -38,7 +38,7 @@ module.exports = function(app, models) {
                 tastings = _.map(tastings, function(tasting) {
                     tasting = tasting.toObject();
                     tasting.imageName = 'dead-guy';
-                    if (_.contains([15967, 837, 1862], tasting.beer.beerId))
+                    if (_.contains([15967, 1862], tasting.beer.beerId))
                         tasting.imageName = String(tasting.beer.beerId);
                     return tasting;
                 });
