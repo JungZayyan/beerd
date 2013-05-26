@@ -2,7 +2,7 @@ var _ = require('lodash');
 var beerList = require('../mockdata/unique_beers.json');
 var yelp = require('yelp')
 
-module.exports = function(app) {
+module.exports = function(app, models) {
 
     var yelpClient = yelp.createClient({
         consumer_key: process.env.YELP_KEY,
@@ -30,5 +30,18 @@ module.exports = function(app) {
             response.send(data);
         });
 
+    });
+
+    app.post('/api/tasting', function(req, res) {
+        tasting = new models.Tasting({
+            beer: req.param('beer'),
+            location: req.param('location'),
+            coords: req.param('coords'),
+            notes: req.param('notes'),
+            liked: req.param('liked')
+        });
+        tasting.save();
+
+        res.send(200);
     });
 }
