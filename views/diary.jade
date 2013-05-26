@@ -4,10 +4,11 @@ block content
   script(src="/js/diary.js")
   header.head
     div(class="container history")
-      h1 Diary
+      a.go-back(href="../")
+      h1 New entry
       div.post-this
         p Post
-  div(class="container")
+  div.container
     form(class="form-signin", ng-controller='TastingController',
          method="post", action="/diary")
       h2(class="form-signin-heading") What are you drinking?

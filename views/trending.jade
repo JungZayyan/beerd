@@ -3,18 +3,51 @@ extends layout
 block content
   header.head
     div(class="container history")
-      h1 History
-  div.container.history
+      h1 Trending
+  div.container.trending
     h2(class="form-signin-heading")
 
-        article.entry
+    article.entry
 
-          div.image-wrap
-            div.image-circle
-              img(src="/images/beers/dead-guy.jpg")
-          section
+      div.image-wrap
+        div.image-circle
+          img(src="/images/trending/wuchak.jpg")
+          span.rating
+      section
 
-            header
-              h3
-                span.beer-name Molson
-                span.rating Liked
+        header
+          h3
+            span.brewery Kichesippi
+            span.beer-name Wuchak Black
+        div.peers
+          img(src="/img/peers.jpg")
+
+    article.entry
+
+      div.image-wrap
+        div.image-circle
+          img(src="/images/trending/pale.jpg")
+          span.rating
+      section
+
+        header
+          h3
+            span.brewery Beyond the Pale
+            span.beer-name Pink Fuzz
+        div.peers
+          img(src="/img/peers.jpg")
+
+    article.entry
+
+      div.image-wrap
+        div.image-circle
+          img(src="/images/trending/big-rig.jpg")
+          span.rating
+      section
+
+        header
+          h3
+            span.brewery Big Rig Brewery
+            span.beer-name Big Rig Gold
+        div.peers
+          img(src="/img/peers.jpg")

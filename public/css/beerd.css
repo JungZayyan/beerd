@@ -2,9 +2,14 @@ body {
   font-family: 'Advent Pro', sans-serif;
   font-weight: 100;
   color: #666;
+  background-color: #f3f3f3;
 }
 
 h2, h3 {
+  margin-top: 0;
+}
+
+header.head h2, header.head h3 {
   white-space: nowrap;
 }
 
@@ -33,7 +38,6 @@ header.head .container {
 
 header.head h1 {
   text-align: center;
-
   -webkit-box-flex: 1;
   width: 90%;
   -webkit-flex: 1 12 90%;
@@ -55,6 +59,33 @@ header.head div.post-this {
   color: #fff;
   text-align: center;
   vertical-align: middle;
+}
+
+header.head a.go-back {
+  display: block;
+  border-right: 1px solid #d6d6d6;
+  width: 5%;
+  min-width: 70px;
+  -webkit-flex: 11 1 5%;
+          flex: 11 1 5%;
+  -webkit-order: 1;
+          order: 1;
+  background: url(/img/back-btn.png) 45% center no-repeat;
+}
+
+header.head a.go-back:hover, header.head a.go-back:active {
+  background: #eda847 url(/img/back-btn.png) 35% center no-repeat;
+  cursor: pointer;
+}
+
+header.head div.go-back ~ h1 {
+  -webkit-order: 2;
+          order: 2;
+}
+
+header.head div.go-back ~ .post-this {
+  -webkit-order: 3;
+          order: 3;
 }
 
 header.head div.post-this:hover, header.head div.post-this:active {
@@ -157,7 +188,7 @@ input.photo {
 /*
   HISTORY
 */
-.history .entry {
+.entry {
   padding: 20px 0;
   margin-bottom:30px;
   display: -webkit-box;
@@ -173,18 +204,18 @@ input.photo {
   position: relative;
 }
 
-.image-wrap:after {
+.history .image-wrap:after {
   content: "";
   border:1px solid #cecece;
   background-color: #cecece;
   left:50%;
   margin-left: -2px;
-  height: 100px;
+  height: 125px;
   width:2px;
   position: absolute;
 }
 
-.entry:last-child .image-wrap:after {
+.history .entry:last-child .image-wrap:after {
   display: none;
 }
 
@@ -195,6 +226,7 @@ input.photo {
 .image-circle {
   max-width: 70px;
   max-height: 70px;
+  min-width: 60px;
   border-radius: 100%;
   overflow: hidden;
   background-color: #fff;
@@ -220,6 +252,18 @@ input.photo {
 .history .entry h3 {
   display: inline-block;
   padding-right: 30px;
+  font-size: 1.5em;
+  line-height: 30px;
+}
+
+.trending .entry section h3 {
+  border-bottom: 1px solid #cecece;
+  margin-top: 0;
+  line-height: 30px;
+}
+
+.trending .entry section {
+  width: 100%;
 }
 
 .history .entry section {
@@ -234,7 +278,7 @@ input.photo {
   border-bottom: 1px solid #cecece;
 }
 
-.history .entry span.brewery {
+.entry span.brewery {
   display: block;
   font-weight: bold;
 }
