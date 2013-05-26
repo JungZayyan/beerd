@@ -4,6 +4,10 @@ body {
   color: #666;
 }
 
+h2, h3 {
+  white-space: nowrap;
+}
+
 .center {
   text-align: center;
 }
@@ -54,20 +58,21 @@ input.rate[type="radio"]:checked + label {
 }
 
 input[type="text"], .heart {
-  font-size: 22px;
+  font-size: 12pt;
   border: 1px solid #d8d8d8;
   background-color: #e5e5e5;
   margin-bottom: 30px;
-  padding: 0px 25px;
+  padding: 0px 15px;
 }
 
 input[type="text"] {
-  height: 95px;
+  height: 50px;
 }
 
 input.photo {
-  height: 150px;
+  height: 75px;
   background: #e5e5e5 url(/img/photo.jpg) right 10px center no-repeat;
+
 }
 
 .heart {
@@ -81,19 +86,24 @@ input.photo {
 }
 
 .heart textarea {
-  min-height: 375px;
+  min-height: 100px;
   overflow: hidden;
   border: none;
   background-color: transparent;
   box-shadow: none;
-  font-size: 22px;
   resize: none;
   overflow: scroll;
+  font-size: 12pt;
+  padding: 0;
+}
+
+.heart textarea::-webkit-input-placeholder {
+  font-size: 22px;
 }
 
 .heart label {
-  height: 95px;
-  width: 95px;
+  height: 50px;
+  width: 50px;
   border-radius: 100%;
   background: #ccc url(/img/heart-red.png) center center no-repeat;
   background: #ccc url(/img/heart.png) center center no-repeat;
@@ -116,17 +126,18 @@ input.photo {
   HISTORY
 */
 .history .entry {
-  padding: 20px;
+  padding: 20px 0;
   margin-bottom:30px;
+  display: -webkit-box;
   display: -webkit-flex;
   display:         flex;
   -webkit-flex-flow: row;
          flex-flow: row;
-  margin-bottom: 30px;
+  margin-bottom: 0;
 }
 
 .image-wrap {
-  margin-right: 2%;
+  margin-right: 4%;
   position: relative;
 }
 
@@ -136,7 +147,7 @@ input.photo {
   background-color: #cecece;
   left:50%;
   margin-left: -2px;
-  height:180px;
+  height: 100px;
   width:2px;
   position: absolute;
 }
@@ -145,14 +156,19 @@ input.photo {
   display: none;
 }
 
+.entry:last-child section {
+  border-bottom: 0!important;
+}
+
 .image-circle {
-  max-width: 130px;
-  max-height: 130px;
+  max-width: 70px;
+  max-height: 70px;
   border-radius: 100%;
   overflow: hidden;
   background-color: #fff;
   border: 2px solid #cecece;
   display: inline-block;
+  -webkit-box-flex: 1;
   -webkit-flex: 1 2 5%;
           flex: 1 2 5%;
   -webkit-order: 1;
@@ -163,7 +179,7 @@ input.photo {
   max-width: 100%;
   max-height: 100%;
   border-radius: 100%;
-  border: 4px solid #fff;
+  border: 0px solid #fff;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -176,12 +192,12 @@ input.photo {
 
 .history .entry section {
   width: auto;
+  -webkit-box-flex: 2;
    -webkit-flex: 1 1 95%;
            flex: 1 1 95%;
    -webkit-order: 2;
            order: 2;
-  padding-bottom: 50px;
-  margin-bottom: -10px;
+  padding-bottom: 25px;
   -webkit-box-sizing: content-box;
   border-bottom: 1px solid #cecece;
 }

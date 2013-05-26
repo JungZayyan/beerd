@@ -11,9 +11,9 @@ block content
       input.input-block-level(type="text", placeholder="Beer name",
         ng-model='beerName', name="beerName", autocomplete="off",
         typeahead='beerTitle(beer) for beer in beers($viewValue)')
+      input.input-block-level.photo(type="text", placeholder="Photo")
       input.input-block-level(type="text", placeholder="Location",
                               ng-model="locationName", readonly)
-      input.input-block-level.photo(type="text", placeholder="Photo")
       section.heart
         textarea.notes(placeholder="Tasting notes",
                        name="notes")

@@ -7,16 +7,15 @@ block content
     for tasting in tastings
 
         article.entry
-          section
-
-            header
-              h3
-                span.brewery Rogue
-                span.beer-name= tasting.beerName
-              if tasting.liked
-                span.rating Liked
-              p= tasting.notes
 
           div.image-wrap
             div.image-circle
               img(src="/images/beers/dead-guy.jpg")
+          section
+
+            header
+              h3
+                span.beer-name= tasting.beerName
+              if tasting.liked
+                span.rating Liked
+              p= tasting.notes
