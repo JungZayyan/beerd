@@ -3,14 +3,24 @@ body {
   font-weight: 100;
   color: #666;
   background-color: #f3f3f3;
+  padding-top: 70px;
 }
 
 h2, h3 {
   margin-top: 0;
+  font-size: 24px;
 }
 
 header.head h2, header.head h3 {
   white-space: nowrap;
+}
+
+header.head {
+  position: fixed;
+  z-index: 1000;
+  border-bottom: 1px solid #ccc;
+  -webkit-box-shadow: 0 2px 2px #ccc;
+  top: 0;
 }
 
 .center {
@@ -44,6 +54,8 @@ header.head h1 {
           flex: 1 12 90%;
   -webkit-order: 1;
           order: 1;
+
+  font-size: 24px;
 }
 
 header.head div.post-this {
@@ -84,6 +96,7 @@ header.head a.go-back {
   -webkit-order: 1;
           order: 1;
   background: url(/img/back-btn.png) 45% center no-repeat;
+  background-size: 30%;
 }
 
 header.head a.new-post {
@@ -105,8 +118,9 @@ header.head a.new-post:hover, header.head a.new-post:active {
 }
 
 header.head a.go-back:hover, header.head a.go-back:active {
-  background: #eda847 url(/img/back-btn.png) 35% center no-repeat;
+  background: #eda847 url(/img/back-btn.png) 40% center no-repeat;
   cursor: pointer;
+  background-size: 30%;
 }
 
 header.head div.go-back ~ h1 {
@@ -159,7 +173,7 @@ input[type="text"], .heart, select {
   -webkit-appearance: none;
 }
 
-input[type="text"] {
+input[type="text"], select {
   height: 50px;
 }
 
@@ -335,4 +349,27 @@ input.photo {
 .history .drank-at, .history .tasting-notes {
   display: block;
   font-size:1.2em;
+}
+
+
+.container.map img {
+  max-width: none;
+}
+
+.container.diary {
+  position: relative;
+}
+
+
+/* dropdown */
+.typeahead.dropdown-menu {
+  width: 100%;
+  top: 100px;
+  left: 0;
+}
+
+.typeahead.dropdown-menu li {
+  height: 30px;
+  font-size: 14px!important;
+  font-family: 'helvetica', sans-serif;
 }
