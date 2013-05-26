@@ -11,12 +11,12 @@ block content
       input.input-block-level(type="text", placeholder="Beer name",
         ng-model='beerName', name="beerName"
         typeahead='beerTitle(beer) for beer in beers($viewValue)')
-      input(type="text", ng-model="locationName")
-      section(class="center")
-        input(type="radio", name="rate", class="rate", id="rate-up")
-        label(class="rate rate-up", for="rate-up")
-        input(type="radio", name="rate", class="rate", id="rate-down")
-        label(class="rate rate-down", for="rate-down")
-      h2 Tasting notes
-      textarea(class="notes", name="notes")
-      button(class=" btn-large btn-primary", type="submit") Submit
+      input.input-block-level(type="text", placeholder="Location",
+                              ng-model="locationName")
+      input.input-block-level.photo(type="text", placeholder="Photo")
+      section.heart
+        textarea.notes(placeholder="Tasting notes",
+                       name="notes")
+        input#heart(type="checkbox")
+        label(for="heart")
+      button.btn-large.btn-primary(type="submit") Submit

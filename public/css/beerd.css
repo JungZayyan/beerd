@@ -1,6 +1,9 @@
-h1, h2, h3, h4, h5, h6 {
+body {
   font-family: 'Advent Pro', sans-serif;
+  font-weight: 100;
+  color: #666;
 }
+
 .center {
   text-align: center;
 }
@@ -40,14 +43,74 @@ h1, h2, h3, h4, h5, h6 {
 
 .container textarea {
   width: 100%;
-  display: block;
   min-height:200px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 input.rate[type="radio"]:checked + label {
   border: 3px solid blue;
 }
 
+input[type="text"], .heart {
+  font-size: 22px;
+  border: 1px solid #d8d8d8;
+  background-color: #e5e5e5;
+  margin-bottom: 30px;
+  padding: 0px 25px;
+}
+
+input[type="text"] {
+  height: 95px;
+}
+
+input.photo {
+  height: 150px;
+  background: #e5e5e5 url(/img/photo.jpg) right 10px center no-repeat;
+}
+
+.heart {
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 100px;
+}
+
+.heart input {
+  display: none;
+}
+
+.heart textarea {
+  min-height: 375px;
+  overflow: hidden;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  font-size: 22px;
+  resize: none;
+  overflow: scroll;
+}
+
+.heart label {
+  height: 95px;
+  width: 95px;
+  border-radius: 100%;
+  background: #ccc url(/img/heart-red.png) center center no-repeat;
+  background: #ccc url(/img/heart.png) center center no-repeat;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  background-size: 55%;
+}
+
+.heart label:hover {
+  background-size: 60%;
+  box-shadow: 0px 0 3px #333
+}
+
+.heart input:checked + label {
+  background-image: url(/img/heart-red.png);
+}
 
 /*
   HISTORY
@@ -73,7 +136,7 @@ input.rate[type="radio"]:checked + label {
   background-color: #cecece;
   left:50%;
   margin-left: -2px;
-  height:100px;
+  height:180px;
   width:2px;
   position: absolute;
 }
@@ -117,8 +180,13 @@ input.rate[type="radio"]:checked + label {
            flex: 1 1 95%;
    -webkit-order: 2;
            order: 2;
-  padding-bottom: 90px;
-  margin-bottom: -30px;
+  padding-bottom: 50px;
+  margin-bottom: -10px;
   -webkit-box-sizing: content-box;
   border-bottom: 1px solid #cecece;
+}
+
+.history .entry span.brewery {
+  display: block;
+  font-weight: bold;
 }
