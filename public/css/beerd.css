@@ -408,6 +408,18 @@ input.photo {
   background-size: 50%;
 }
 
+.sign-in a p {
+  position: absolute;
+  top: 85px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+  text-align: center;
+  width: 75px;
+  left: 0%;
+}
+
 .profile-pic {
   position: absolute;
   left: 50%;
@@ -428,6 +440,11 @@ input.photo {
   width: 175px;
   border-radius: 100%;
 }
+
+.sign-in.container {
+  max-width: 550px!important;
+}
+
 /*#eea030*/
 .sign-in a.history {
   left: 20%;
